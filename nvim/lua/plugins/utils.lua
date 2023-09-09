@@ -33,7 +33,14 @@ return {
     },
 
     -- Terminal
-    { 'akinsho/toggleterm.nvim', version = "*", config = true },
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        opts = {
+            open_mapping = [[<c-\>]],
+            insert_mappings = true,
+        }
+    },
 
     -- Formatters
     {
