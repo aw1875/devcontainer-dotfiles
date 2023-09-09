@@ -13,7 +13,7 @@ require('lualine').setup({
             {
                 function()
                     if vim.g.devcontainer_name then
-                        return vim.g.devcontainer_name
+                        return "󱘖 " .. vim.g.devcontainer_name
                     else
                         return ""
                     end
