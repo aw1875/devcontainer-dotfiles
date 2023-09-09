@@ -32,6 +32,9 @@ return {
         },
     },
 
+    -- Terminal
+    { 'akinsho/toggleterm.nvim', version = "*", config = true },
+
     -- Formatters
     {
         'sbdchd/neoformat',
