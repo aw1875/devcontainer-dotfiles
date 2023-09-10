@@ -44,6 +44,20 @@ map('n', '<leader>gb', function()
     require('gitsigns').blame_line { full = true }
 end)
 
+-- DevContainers
+vim.api.nvim_create_user_command("DevContainers", function(opts)
+    local args = opts.args
+    if args == "CloseContainer" then
+        vim.cmd("qa!")
+    end
+end, {
+    nargs = 1,
+    complete = function()
+        return { "CloseContainer" }
+    end
+})
+map('n', '<C-x>x', "<cmd>CloseContainer<CR>")
+
 return {
     map = map,
 }
