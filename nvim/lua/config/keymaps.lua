@@ -56,7 +56,7 @@ end, {
         return { "CloseContainer" }
     end
 })
-map('n', '<C-x>x', "<cmd>CloseContainer<CR>")
+map('n', '<C-x>x', ":DevContainers CloseContainer<CR>")
 
 return {
     map = map,
