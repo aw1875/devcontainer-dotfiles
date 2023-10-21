@@ -146,7 +146,6 @@ for _, serverName in ipairs(servers) do
                 on_attach = on_attach,
                 capabilities = capabilities,
                 settings = customSettings[serverName],
-                -- root_dir = utils.is_glint_project,
             })
         elseif serverName == 'omnisharp' then
             server.setup({

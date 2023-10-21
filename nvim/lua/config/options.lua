@@ -3,6 +3,8 @@ vim.cmd([[set t_Co=256]])
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.editorconfig = false
+
 local opt = vim.opt
 
 opt.completeopt = 'menu,menuone,noselect'
