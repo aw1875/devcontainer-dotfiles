@@ -43,6 +43,37 @@ map('n', '<leader>gs', vim.cmd.Git)
 map('n', '<leader>gb', function()
     require('gitsigns').blame_line { full = true }
 end)
+map({ 'n', 'v' }, '<leader>grh', function()
+    if vim.fn.mode == 'v' then
+        require('gitsigns').reset_hunk { vim.fn.line('.'), vim.fn.line('v') }
+    else
+        require('gitsigns').reset_hunk()
+    end
+end)
+map({ 'n', 'v' }, '<leader>ush', function()
+    if vim.fn.mode == 'v' then
+        require('gitsigns').undo_stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
+    else
+        require('gitsigns').undo_stage_hunk()
+    end
+end)
+
+-- Git Navigating
+map('n', ']c', function()
+    if vim.wo.diff then return ']c' end
+    vim.schedule(function()
+        require('gitsigns').next_hunk()
+    end)
+    return '<Ignore>'
+end, { expr = true })
+
+map('n', '[c', function()
+    if vim.wo.diff then return '[c' end
+    vim.schedule(function()
+        require('gitsigns').prev_hunk()
+    end)
+    return '<Ignore>'
+end, { expr = true })
 
 -- DevContainers
 vim.api.nvim_create_user_command("DevContainers", function(opts)
