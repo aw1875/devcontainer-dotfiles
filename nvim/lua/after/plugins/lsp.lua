@@ -112,6 +112,7 @@ local servers = {
     'tsserver',
     'jsonls',
     'omnisharp',
+    'csharp_ls',
 
     -- Frameworks
     'ember',
@@ -147,7 +148,7 @@ for _, serverName in ipairs(servers) do
                 capabilities = capabilities,
                 settings = customSettings[serverName],
             })
-        elseif serverName == 'omnisharp' then
+        elseif serverName == 'omnisharp' or serverName == 'csharp_ls' then
             server.setup({
                 on_attach = function(client)
                     client.server_capabilities.semanticTokensProvider = nil
