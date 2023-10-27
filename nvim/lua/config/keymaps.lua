@@ -39,30 +39,29 @@ map('n', '<leader>t', '<cmd>Neotree toggle<CR>')
 map('n', '<leader>nf', '<cmd>Neotree focus<CR>')
 
 -- Git
-local gs = require('gitsigns')
 map('n', '<leader>gs', vim.cmd.Git)
 map('n', '<leader>gb', function()
-    gs.blame_line { full = true }
+    require('gitsigns').blame_line { full = true }
 end)
 map({ 'n', 'v' }, '<leader>hs', function()
     if vim.fn.mode == 'v' then
-        gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
+        require('gitsigns').stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
     else
-        gs.stage_hunk()
+        require('gitsigns').stage_hunk()
     end
 end)
 map({ 'n', 'v' }, '<leader>hr', function()
     if vim.fn.mode == 'v' then
-        gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') }
+        require('gitsigns').reset_hunk { vim.fn.line('.'), vim.fn.line('v') }
     else
-        gs.reset_hunk()
+        require('gitsigns').reset_hunk()
     end
 end)
 map({ 'n', 'v' }, '<leader>hu', function()
     if vim.fn.mode == 'v' then
-        gs.undo_stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
+        require('gitsigns').undo_stage_hunk { vim.fn.line('.'), vim.fn.line('v') }
     else
-        gs.undo_stage_hunk()
+        require('gitsigns').undo_stage_hunk()
     end
 end)
 
@@ -70,7 +69,7 @@ end)
 map('n', ']c', function()
     if vim.wo.diff then return ']c' end
     vim.schedule(function()
-        gs.next_hunk()
+        require('gitsigns').next_hunk()
     end)
     return '<Ignore>'
 end, { expr = true })
@@ -78,7 +77,7 @@ end, { expr = true })
 map('n', '[c', function()
     if vim.wo.diff then return '[c' end
     vim.schedule(function()
-        gs.prev_hunk()
+        require('gitsigns').prev_hunk()
     end)
     return '<Ignore>'
 end, { expr = true })
