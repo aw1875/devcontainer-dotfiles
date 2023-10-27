@@ -36,6 +36,7 @@ return {
         'zbirenbaum/copilot-cmp',
         dependencies = {
             'zbirenbaum/copilot.lua',
+            commit = "1a8032a",
             cmd = 'Copilot',
             build = ':Copilot auth',
             opts = {
