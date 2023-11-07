@@ -64,6 +64,13 @@ map({ 'n', 'v' }, '<leader>hu', function()
         require('gitsigns').undo_stage_hunk()
     end
 end)
+map({ 'n', 'v' }, '<leader>hp', function()
+    if vim.fn.mode == 'v' then
+        require('gitsigns').preview_hunk { vim.fn.line('.'), vim.fn.line('v') }
+    else
+        require('gitsigns').preview_hunk()
+    end
+end)
 
 -- Git Navigating
 map('n', ']c', function()
