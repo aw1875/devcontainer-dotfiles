@@ -16,6 +16,7 @@ telescope.setup({
         previewer = true,
         file_previewer = previewers.vim_buffer_cat.new,
         grep_previewer = previewers.vim_buffer_vimgrep.new,
+        file_ignore_patterns = { '%.git.*', 'node_modules' },
     },
     pickers = {
         find_files = {
@@ -46,5 +47,11 @@ map('n', '<leader>fd', function()
         file_ignore_patterns = { '%.git.*' }
     })
 end, {})
-map('n', '<leader>dl', builtin.diagnostics, { buffer = 0 })
+map('n', '<leader>dl', function()
+    builtin.diagnostics({
+        prompt_prefix = '  ',
+        prompt_title = 'Diagnostics',
+        bufnr = 0,
+    })
+end)
 map('n', '<leader>sr', builtin.lsp_references, {})

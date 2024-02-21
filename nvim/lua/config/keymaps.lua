@@ -66,9 +66,9 @@ map({ 'n', 'v' }, '<leader>hu', function()
 end)
 map({ 'n', 'v' }, '<leader>hp', function()
     if vim.fn.mode == 'v' then
-        require('gitsigns').preview_hunk { vim.fn.line('.'), vim.fn.line('v') }
+        require('gitsigns').preview_hunk_inline { vim.fn.line('.'), vim.fn.line('v') }
     else
-        require('gitsigns').preview_hunk()
+        require('gitsigns').preview_hunk_inline()
     end
 end)
 
