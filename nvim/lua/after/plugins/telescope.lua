@@ -47,6 +47,13 @@ map('n', '<leader>fd', function()
         file_ignore_patterns = { '%.git.*' }
     })
 end, {})
+map('n', '<leader>of', function()
+    builtin.oldfiles({
+        prompt_prefix = '  ',
+        prompt_title = 'Searching Old Files',
+        file_ignore_patterns = { '%.git.*' }
+    })
+end, {})
 map('n', '<leader>dl', function()
     builtin.diagnostics({
         prompt_prefix = '  ',
@@ -55,3 +62,9 @@ map('n', '<leader>dl', function()
     })
 end)
 map('n', '<leader>sr', builtin.lsp_references, {})
+map('n', '<leader>bg', function()
+    builtin.current_buffer_fuzzy_find({
+        prompt_prefix = '  ',
+        prompt_title = 'Current Buffer'
+    })
+end)
