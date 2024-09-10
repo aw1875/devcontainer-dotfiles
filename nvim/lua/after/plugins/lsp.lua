@@ -109,17 +109,12 @@ local servers = {
     -- Languages
     'html',
     'cssls',
-    'tsserver',
+    'ts_ls',
     'jsonls',
-    'omnisharp',
-    'csharp_ls',
 
     -- Frameworks
     'ember',
     'glint',
-
-    -- Tools
-    'tailwindcss',
 }
 
 -- Setup Mason
